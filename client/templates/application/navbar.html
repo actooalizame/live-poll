@@ -1,0 +1,20 @@
+<template name="navBar">
+  <div class="navbar-fixed">
+    <nav class="teal darken-4">
+      <div class="nav-wrapper">
+        {{#if currentUser}} 
+      
+        <ul id="nav-logged-in">
+          <li class="waves-effect waves-light left-align"><a href="/">All</a></li>
+    	  <li class="right-align">{{>loginButtons}}</li>          
+        </ul>
+        {{else}}  
+        <ul id="nav-mobile" class="right-align">
+          <li><a href="/">All</a></li>
+          <li>{{>loginButtons}}</li>
+        </ul>
+        {{/if}} 
+      </div>
+    </nav>
+  </div>
+</template>
