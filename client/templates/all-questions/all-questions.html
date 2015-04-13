@@ -1,0 +1,17 @@
+<template name="allQuestions">
+	<div class="container">
+		<div class="row">
+			{{#each questions}}
+				<div class="col s12 l3">
+					{{question}}
+					<ul>
+						{{#each options}}
+							<li>{{option}}</li>
+						{{/each}}
+					</ul>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+
+</template>

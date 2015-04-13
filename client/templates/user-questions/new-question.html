@@ -1,0 +1,33 @@
+<template name="newQuestion">
+	<form class="create-question">
+    <div class="row valign-wrapper">
+      <div class="col s12 m4 input-field valign">
+        <input type="text" class="" name="question" placeholder="Crea tu pregunta" />
+      </div>
+    </div>
+    <div class="row valign-wrapper">
+      <input type="submit" class="btn waves-effect waves-light valign" value="enviar"/>
+    </div>
+  </form>
+  <div class="container">
+    <div class="row">
+      {{#each newQuestion}}
+      
+        <div class="new-question col s12 l4 {{ selectedClass }}">	
+          <h4>{{question}}</h4>
+          <form class="create-option">
+            <input type="text" class="" name="option" placeholder="Agrega una opcion" />
+            <input type="submit" class="btn waves-effect waves-light" value="ok"/>
+          </form>
+          <ul class="options">
+            {{#each options}}
+              <li><h5>{{option}}</h5></li>
+            {{/each}}
+          </ul>
+          <button class="btn waves-effect waves-light set-done">Preguntar!</button>
+        </div>
+      
+      {{/each}}
+    </div>
+  </div>
+</template>
