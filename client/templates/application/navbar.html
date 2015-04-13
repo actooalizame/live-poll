@@ -5,12 +5,13 @@
         {{#if currentUser}} 
       
         <ul id="nav-logged-in">
-          <li class="waves-effect waves-light left-align"><a href="/">All</a></li>
-    	  <li class="right-align">{{>loginButtons}}</li>          
+          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
+          <li><a href="{{pathFor 'userQuestions'}}">My Questions</a></li>
+  	      <li class="right-align">{{>loginButtons}}</li>          
         </ul>
         {{else}}  
         <ul id="nav-mobile" class="right-align">
-          <li><a href="/">All</a></li>
+          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
           <li>{{>loginButtons}}</li>
         </ul>
         {{/if}} 

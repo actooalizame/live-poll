@@ -6,3 +6,4 @@ Template.allQuestions.helpers({
 		return Options.find({questionId: this._id});
 	}
 });
+
