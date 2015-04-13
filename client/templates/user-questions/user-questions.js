@@ -16,13 +16,19 @@ Template.userQuestions.helpers({
 	},
 	'hideClass': function(){
 		var question = Questions.findOne(this._id);
-		console.log(question.done);
 		if( question.done === true){
 			return 'hidden';
 		}
-
+	},
+	'aptClass': function(){
+		var question = Questions.findOne({done:false});
+		console.log(question.options);
+		if( question.options < 2){
+			return 'hidden';
+		}
 	}
 });
+
 
 Template.userQuestions.events({
 	'click .new-question': function(){

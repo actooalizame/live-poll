@@ -4,7 +4,8 @@ Meteor.methods({
 			question: question,
 			createdBy: creatorId,
 			createdAt: new Date(),
-			done: false
+			done: false,
+			options: 0
 		});
 	},
 	'insertOption': function(questionId, option){
@@ -12,6 +13,10 @@ Meteor.methods({
 			questionId: questionId,
 			option: option
 		});
+		Questions.update(
+			{	_id: questionId },
+			{$inc: {options: 1} }
+		);
 	},
 	'setDone': function(questionId){
 		Questions.update(
