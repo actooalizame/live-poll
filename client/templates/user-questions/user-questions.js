@@ -22,7 +22,6 @@ Template.userQuestions.helpers({
 	},
 	'aptClass': function(){
 		var question = Questions.findOne({done:false});
-		console.log(question.options);
 		if( question.options < 2){
 			return 'hidden';
 		}

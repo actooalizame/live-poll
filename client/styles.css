@@ -11,3 +11,10 @@ ol li {
 	display: none;
 }
 
+.deactivate a {
+	visibility: hidden;
+}
+
+.pink {
+	background-color: pink;
+}

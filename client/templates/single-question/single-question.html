@@ -1,10 +1,22 @@
 <template name="singleQuestion">
-
-	<h2>{{question}}</h2>
-	<ul>
-		{{#each options}}
-			<li><h5>- {{option}}</h5></li>
-		{{/each}}
-	</ul>
+	<div class="container">
+		<h2>{{question}}</h2>
+	
+		<div class="row {{checkVoted}}">
+			{{#each options}}
+				<div class="single-option {{selectedClass}}">
+					<div class="row">
+						<div class="col s8">
+							<h5>- {{option}}</h5>
+								<a class="btn waves-effect waves-light vote-option">Votar!</a>
+						</div>
+						<div class="col s4">
+							<h4>{{score}}</h4>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
 
 </template>
