@@ -20,9 +20,15 @@ Template.userQuestions.helpers({
 			return 'hidden';
 		}
 	},
-	'aptClass': function(){
+	'disableAsk': function(){
 		var question = Questions.findOne({done:false});
 		if( question.options < 2){
+			return 'hidden';
+		}
+	},
+	'disableOptions': function(){
+		var question = Questions.findOne({done:false});
+		if( question.options === 5){
 			return 'hidden';
 		}
 	}
@@ -37,9 +43,25 @@ Template.userQuestions.events({
 	"submit .create-question": function(event){
 		event.preventDefault();
 		var question = event.target.question.value;
+		var questionLength = question.length;
 		var creator = Meteor.user();
 		var creatorId = creator.services.facebook.id;
-		Meteor.call('insertQuestion', question, creatorId);
+		var firstName = creator.services.facebook.first_name;
+		var lastName = creator.services.facebook.last_name;
+		var creatorName = firstName + " " + lastName;
+
+		if(question===""){
+			alert("Debes crear una pregunta!");
+		}
+		else if(questionLength<8){
+			alert("La pregunta debe contener al menos 8 caracteres");
+		}
+		else if(questionLength>120){
+			alert("La pregunta debe contener un maximo de 120 caracteres");
+		}
+		else{
+			Meteor.call('insertQuestion', question, creatorId, creatorName);
+		}
 		event.target.question.value = "";
 	},
 	'submit .create-option': function(event){

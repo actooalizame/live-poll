@@ -1,30 +1,36 @@
 <template name="userQuestions">
-	<form class="create-question">
-    <div class="row valign-wrapper">
-      <div class="col s12 m4 input-field valign">
-        <input type="text" class="" name="question" placeholder="Crea tu pregunta" />
+  {{#if currentUser}}
+  	<form class="create-question">
+      <div class="row valign-wrapper">
+        <div class="col s12 m4 input-field valign">
+          <input type="text" class="question" name="question" placeholder="Crea tu pregunta" />
+        </div>
       </div>
-    </div>
-    <div class="row valign-wrapper">
-      <input type="submit" class="btn waves-effect waves-light valign" value="enviar"/>
-    </div>
-  </form>
+      <div class="row valign-wrapper">
+        <input type="submit" class="btn waves-effect waves-light valign" value="enviar"/>
+      </div>
+    </form>
+  {{else}}
+    <h4>Debes loguearte para preguntar!</h4>
+  {{/if}}
   <div class="container">
     <div class="row">
       {{#each userQuestions}}
       
-        <div class="new-question col s12 l4 {{ selectedClass }}">	
-          <h5>{{question}}</h5>
+        <div class="new-question question col s12 l4 {{ selectedClass }}">	
+          <p class="z-depth-3 question-title">{{question}}</p>
           <form class="create-option {{hideClass}}">
-            <input type="text" class="" name="option" placeholder="Agrega una opcion" />
-            <input type="submit" class="btn waves-effect waves-light" value="ok"/>
+            <div class="{{disableOptions}}">
+              <input type="text" class="" name="option" placeholder="Agrega una opcion" />
+              <input type="submit" class="btn waves-effect waves-light" value="ok"/>
+            </div>
           </form>
-          <ol class="options">
+          <ul class="options collection">
             {{#each options}}
-              <li><h6>{{option}}</h6></li>
+              <li class="collection-item"><h6>{{option}} | <span class="score">{{score}}</span></h6></li>
             {{/each}}
-          </ol>
-          <div class="{{aptClass}}">
+          </ul>
+          <div class="{{disableAsk}}">
             <button class="btn waves-effect waves-light set-done {{hideClass}}">Preguntar!</button>
           </div>
         </div>

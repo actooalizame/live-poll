@@ -3,7 +3,7 @@ Template.allQuestions.helpers({
 		return Questions.find({done:true});
 	},
 	'options': function(){
-		return Options.find({questionId: this._id});
+		return Options.find({questionId: this._id}, {sort: {score:-1}});
 	}
 });
 

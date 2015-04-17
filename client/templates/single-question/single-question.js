@@ -1,11 +1,3 @@
-/*Template.singleQuestion.rendered = function(){
-	var checker = $('.smart-hide').text();
-	console.log(checker);
-		if(checker==='hide'){
-			$('.disableVote').hide();
-		}
-};*/
-
 Template.singleQuestion.helpers({
 	'options': function(){
 		return Options.find({questionId: this._id});

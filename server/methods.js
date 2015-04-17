@@ -1,8 +1,9 @@
 Meteor.methods({
-	'insertQuestion': function(question, creatorId){
+	'insertQuestion': function(question, creatorId, creatorName){
 		Questions.insert({
 			question: question,
 			createdBy: creatorId,
+			creatorName: creatorName,
 			createdAt: new Date(),
 			done: false,
 			votedBy: [],

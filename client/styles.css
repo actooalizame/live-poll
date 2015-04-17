@@ -15,6 +15,24 @@ ol li {
 	visibility: hidden;
 }
 
-.pink {
-	background-color: pink;
+.deactivate form {
+	visibility: hidden;
+}
+
+.score {
+	color: red;
+}
+
+.question {
+	height: 330px;
+}
+
+.question-title {
+	padding: 5px;
+	font-weight: bold;
+	border-radius: 5px 5px 0 0;
+}
+
+.single-question {
+	margin-bottom: 35px;
 }
