@@ -4,17 +4,18 @@
 			<h3>{{question}}</h3>
 			<h5>Pregunta: {{creatorName}}</h5>
 		</div>
-		<div class="container board">
-			<div class="row {{checkVoted}}">
+		<div class="board">
+			<div class="row {{checkVoted}} {{selectedClass}}">
 				{{#each options}}
-					<div class="single-option {{selectedClass}}">
-							<div class="col m2">
+					<div class="single-option">
+							<div class="col m3">
 								<div class="svg-container">
-									<svg xmlns="http://www.w3.org/2000/svg" height="100%" width="50%">
-										<rect x="0" y="0" height="{{score}}0" width="60" fill="none" stroke="#ff8a65" stroke-width="3"></rect>
+									<svg xmlns="http://www.w3.org/2000/svg" height="400px" width="300px">
+										<!--<rect x="0" y="-5" height="{{score}}0" width="60" fill="none" stroke="#ff8a65" stroke-width="3"></rect>-->
+										<circle cx="150" cy="150" r="{{scoreExp}}" fill="#2ecc71"/>
 		 							</svg>
 	 							</div>
-	 							<h5>{{option}}</h5>
+	 							<h5 class="option-title">{{option}}</h5>
 	 							<h4>{{score}}</h4>
 								{{#if currentUser}}
 									<a class="btn waves-effect waves-light vote-btn vote-option">Votar!</a>

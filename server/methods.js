@@ -14,7 +14,8 @@ Meteor.methods({
 		Options.insert({
 			questionId: questionId,
 			option: option,
-			score: 0
+			score: 0,
+			scoreExp: 0
 		});
 		Questions.update(
 			{	_id: questionId },
@@ -36,7 +37,7 @@ Meteor.methods({
 	'voteOption': function(optionId){
 		Options.update(
 			{ _id: optionId },
-			{ $inc: { score: 1 } }
+			{ $inc: { score: 1, scoreExp: 7 } }
 		);
 	}
 

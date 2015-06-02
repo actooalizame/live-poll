@@ -38,17 +38,23 @@ ol li {
 }
 
 svg {
-	-ms-transform: rotate(180deg) scale(0.5,0.5); 
-  -webkit-transform: rotate(180deg) scale(0.5,0.5); 
-  -moz-transform: rotate(180deg) scale(0.5,0.5);
-  -o-transform: rotate(180deg) scale(0.5,0.5);
-  transform: rotate(180deg) scale(0.5,0.5);
+	-ms-transform: rotate(180deg) scale(0.6,0.6); 
+  -webkit-transform: rotate(180deg) scale(0.6,0.6); 
+  -moz-transform: rotate(180deg) scale(0.6,0.6);
+  -o-transform: rotate(180deg) scale(0.6,0.6);
+  transform: rotate(180deg) scale(0.6,0.6);
+ 
 }
 
 .board {
-	height: 600px;
+	height: 450px;
+	margin-top: -3em;
 }
 
 .single-option {
 	text-align: center;
+}
+
+.option-title {
+	margin-top: -3.2em;
 }

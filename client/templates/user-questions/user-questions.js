@@ -28,7 +28,7 @@ Template.userQuestions.helpers({
 	},
 	'disableOptions': function(){
 		var question = Questions.findOne({done:false});
-		if( question.options === 5){
+		if( question.options === 4){
 			return 'hidden';
 		}
 	}
