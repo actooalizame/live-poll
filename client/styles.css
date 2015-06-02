@@ -1,8 +1,6 @@
 .selected {
-  border: 1px dotted #26a69a;
-  border-bottom: none;
+	background-color: pink;
 }
-
 
 ol li {
 	list-style-type: lower-alpha;
@@ -12,7 +10,7 @@ ol li {
 	display: none;
 }
 
-.deactivate a {
+.deactivate a{
 	visibility: hidden;
 }
 
@@ -37,4 +35,20 @@ ol li {
 
 .single-question {
 	margin-bottom: 35px;
+}
+
+svg {
+	-ms-transform: rotate(180deg) scale(0.5,0.5); 
+  -webkit-transform: rotate(180deg) scale(0.5,0.5); 
+  -moz-transform: rotate(180deg) scale(0.5,0.5);
+  -o-transform: rotate(180deg) scale(0.5,0.5);
+  transform: rotate(180deg) scale(0.5,0.5);
+}
+
+.board {
+	height: 600px;
+}
+
+.single-option {
+	text-align: center;
 }

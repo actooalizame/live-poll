@@ -12,7 +12,7 @@ Template.singleQuestion.helpers({
 	'checkVoted': function(){
 		var questionId = Questions.findOne({_id: this._id});
 		var user = Meteor.user();
-		var userId = user.services.facebook.id;
+		var userId = user.hook;
 		var votedBy = questionId.votedBy;
 		var array = jQuery.inArray(userId,votedBy);
 		if(array >=0){
@@ -30,8 +30,16 @@ Template.singleQuestion.events({
 		var optionId = this._id;
 		Meteor.call('voteOption', optionId);
 		var user = Meteor.user();
-		var userId = user.services.facebook.id;
+		var userId = user.hook;
 		var questionId = this.questionId;
 		Meteor.call('addVotedBy', questionId, userId);
-	}
+	}/*
+	'click .vote-btn': function(){
+		var optionId = Session.get('selectedOption');
+		Meteor.call('voteOption', optionId);
+		var user = Meteor.user();
+		var userId = user.hook;
+		var questionId = this.questionId;
+		Meteor.call('addVotedBy', questionId, userId);
+	}*/
 });

@@ -1,7 +1,7 @@
 Template.userQuestions.helpers({
 	'userQuestions': function(){
 		var creator = Meteor.user();
-		var creatorId = creator.services.facebook.id;
+		var creatorId = creator.hook;
 		return Questions.find({createdBy:creatorId}, {sort: {createdAt:-1}});
 	},
 	'options': function(){
@@ -45,10 +45,10 @@ Template.userQuestions.events({
 		var question = event.target.question.value;
 		var questionLength = question.length;
 		var creator = Meteor.user();
-		var creatorId = creator.services.facebook.id;
-		var firstName = creator.services.facebook.first_name;
-		var lastName = creator.services.facebook.last_name;
-		var creatorName = firstName + " " + lastName;
+		var creatorId = creator.hook;
+		//var firstName = creator.services.facebook.first_name;
+		//var lastName = creator.services.facebook.last_name;
+		//var creatorName = firstName + " " + lastName;
 
 		if(question===""){
 			alert("Debes crear una pregunta!");
@@ -60,7 +60,7 @@ Template.userQuestions.events({
 			alert("La pregunta debe contener un maximo de 120 caracteres");
 		}
 		else{
-			Meteor.call('insertQuestion', question, creatorId, creatorName);
+			Meteor.call('insertQuestion', question, creatorId);
 		}
 		event.target.question.value = "";
 	},

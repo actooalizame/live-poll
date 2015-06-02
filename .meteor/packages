@@ -11,3 +11,5 @@ iron:router
 accounts-facebook
 accounts-ui
 d0minikk:materialize-meteor
+accounts-twitter
+jeremy:snapsvg
