@@ -5,33 +5,18 @@
     <div class="nav-wrapper white">
       <a href="{{pathFor 'allQuestions'}}" class="brand-logo">NH3</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse right"><i class="mdi-navigation-menu"></i></a>
-      <!--<ul class="right hide-on-med-and-down">
-        {{#if currentUser}} 
-      
-        <ul id="nav-logged-in">
-          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
-          <li><a href="{{pathFor 'userQuestions'}}">My Questions</a></li>
-          <li class="right-align">{{>loginButtons}}</li>          
-        </ul>
-        {{else}}  
-        <ul id="nav-mobile" class="right-align">
-          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
-          <li>{{>loginButtons}}</li>
-        </ul>
-        {{/if}} 
-      </ul>-->
 
       <ul class="side-nav" id="mobile-demo">
         {{#if currentUser}} 
       
         <ul id="nav-logged-in">
-          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
-          <li><a href="{{pathFor 'userQuestions'}}">My Questions</a></li>
+          <!--<li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
+          <li><a href="{{pathFor 'userQuestions'}}">My Questions</a></li>-->
           <li class="right-align">{{>loginButtons}}</li>          
         </ul>
         {{else}}  
         <ul id="nav-mobile" class="right-align">
-          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
+          <!--<li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>-->
           <li>{{>loginButtons}}</li>
         </ul>
         {{/if}} 

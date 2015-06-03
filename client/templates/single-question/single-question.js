@@ -16,7 +16,7 @@ Template.singleQuestion.helpers({
 		var votedBy = questionId.votedBy;
 		var array = jQuery.inArray(userId,votedBy);
 		if(array >=0){
-			//return 'deactivate';
+			return 'deactivate';
 		}
 	},
 	'smartColumns': function(){
@@ -33,6 +33,15 @@ Template.singleQuestion.helpers({
 		}
 		else if(options===4) {
 			return "m3";
+		}
+	},
+	'flipPhone': function(){
+		var questionId = this._id;
+		var question = Questions.findOne({_id: questionId});
+		var options = question.options;
+		var winWidth = window.innerWidth;
+		if(winWidth<=600 && options===4){
+			return "Gira tu teléfono :)";
 		}
 	}
 });

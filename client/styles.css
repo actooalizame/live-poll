@@ -28,11 +28,16 @@ ol li {
 
 .score {
 	color: red;
-	font-size: 17px;
+	font-size: 21px;
+	font-family: 'Share Tech Mono';
+  margin-right: 2px;
+
 }
 
 .single-score {
-	font-size: 16px;
+	color: red;
+	font-size: 21px;
+	font-family: 'Share Tech Mono';
 }
 
 .question {
@@ -45,6 +50,10 @@ ol li {
 	font-size: 17px;
 	font-weight: bold;
 	border-radius: 5px 5px 0 0;
+}
+
+.option-title {
+	 font-size: 17px;
 }
 
 .single-question {
@@ -83,4 +92,11 @@ ol li {
 
 #login-dropdown-list {
   left: -201%;
+}
+
+@media (max-width: 600px) {
+	.question {
+	  height: 430px;
+	  border-radius: 2px;
+	}
 }
