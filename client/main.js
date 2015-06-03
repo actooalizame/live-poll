@@ -15,5 +15,6 @@ iron:router
 accounts-facebook
 accounts-ui
 d0minikk:materialize-meteor
+sacha:spin
 
 */

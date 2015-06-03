@@ -58,23 +58,5 @@ Template.singleQuestion.events({
 		var userId = user.hook;
 		var questionId = this.questionId;
 		Meteor.call('addVotedBy', questionId, userId);
-	}/*
-	'click .vote-btn': function(){
-		var optionId = Session.get('selectedOption');
-		Meteor.call('voteOption', optionId);
-		var user = Meteor.user();
-		var userId = user.hook;
-		var questionId = this.questionId;
-		Meteor.call('addVotedBy', questionId, userId);
-
-
-
-		var question = Questions.findOne(this._id);
-		var optionId = Options.find({questionId: this._id});
-		var questionId = Questions.findOne({_id: this._id});
-		//var question = Questions.findOne({_id: "questionId"});
-		var options = question.options;
-		var count = options.count();
-		return question;
-	}*/
+	}
 });

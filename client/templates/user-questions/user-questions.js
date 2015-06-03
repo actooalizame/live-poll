@@ -46,9 +46,6 @@ Template.userQuestions.events({
 		var questionLength = question.length;
 		var creator = Meteor.user();
 		var creatorId = creator.hook;
-		//var firstName = creator.services.facebook.first_name;
-		//var lastName = creator.services.facebook.last_name;
-		//var creatorName = firstName + " " + lastName;
 
 		if(question===""){
 			alert("Debes crear una pregunta!");
