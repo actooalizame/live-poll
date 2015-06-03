@@ -1,21 +1,23 @@
 <template name="singleQuestion">
-	<div class="">
-		<div class="single-question right-align">
+	<div class="row">
+		<div class="col m3 single-question left-align">
 			<h3>{{question}}</h3>
 			<h5>Pregunta: {{creatorName}}</h5>
+			{{smartColumns}}
 		</div>
-		<div class="board">
+		<div class="board center-align col m9">
 			<div class="row {{checkVoted}} {{selectedClass}}">
 				{{#each options}}
-					<div class="single-option">
-							<div class="col m3">
+					<div class="container single-option">
+							<div class="col m{{smartColumns}}">
 								<div class="svg-container">
-									<svg xmlns="http://www.w3.org/2000/svg" height="400px" width="300px">
-										<!--<rect x="0" y="-5" height="{{score}}0" width="60" fill="none" stroke="#ff8a65" stroke-width="3"></rect>-->
-										<circle cx="150" cy="150" r="{{scoreExp}}" fill="#2ecc71"/>
+									<svg class="svg-single" xmlns="http://www.w3.org/2000/svg" height="550px" width="70px">
+										<rect x="0" y="{{scoreExp}}" height="40" width="60" fill="#6a6" stroke="#101" stroke-width="4"></rect>
+										<!--<circle cx="150" cy="150" r="{{scoreExp}}" fill="#2ecc71"/>-->
 		 							</svg>
 	 							</div>
-	 							<h5 class="option-title">{{option}}</h5>
+	 							<p class="option-title">{{option}}</p>
+	 							
 	 							<h4>{{score}}</h4>
 								{{#if currentUser}}
 									<a class="btn waves-effect waves-light vote-btn vote-option">Votar!</a>
@@ -27,7 +29,6 @@
 						</div>
 					
 				{{/each}}
-				
 			</div>
 		</div>
 	</div>

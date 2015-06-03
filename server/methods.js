@@ -37,7 +37,7 @@ Meteor.methods({
 	'voteOption': function(optionId){
 		Options.update(
 			{ _id: optionId },
-			{ $inc: { score: 1, scoreExp: 7 } }
+			{ $inc: { score: 1, scoreExp: 30 } }
 		);
 	}
 

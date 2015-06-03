@@ -6,7 +6,12 @@
 					<p class="z-depth-3 question-title">{{question}}</p>
 					<ul class="collection">
 						{{#each options}}
-							<li class="collection-item">{{option}} | <span class="score">{{score}}</span></li>
+							<li class="collection-item">{{option}} | 
+								<span class="score">{{score}}</span>
+								<svg xmlns="http://www.w3.org/2000/svg" height="10px" width="50px">
+										<rect x="0" y="0" height="5" width="{{score}}" fill="#ff8a65" stroke="#ff8a65" stroke-width="3"></rect>
+		 							</svg>
+							</li>
 						{{/each}}
 					</ul>
 					<div class="valign-wrapper">

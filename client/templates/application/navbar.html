@@ -1,5 +1,5 @@
 <template name="navBar">
-  <div class="navbar-fixed">
+  <!--<div class="navbar-fixed">
     <nav class="teal darken-4">
       <div class="nav-wrapper">
         {{#if currentUser}} 
@@ -17,5 +17,43 @@
         {{/if}} 
       </div>
     </nav>
-  </div>
+  </div>-->
+
+  <nav>
+    <div class="nav-wrapper white">
+      <a href="#!" class="brand-logo">NH3</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      <ul class="right hide-on-med-and-down">
+        {{#if currentUser}} 
+      
+        <ul id="nav-logged-in">
+          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
+          <li><a href="{{pathFor 'userQuestions'}}">My Questions</a></li>
+          <li class="right-align">{{>loginButtons}}</li>          
+        </ul>
+        {{else}}  
+        <ul id="nav-mobile" class="right-align">
+          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
+          <li>{{>loginButtons}}</li>
+        </ul>
+        {{/if}} 
+      </ul>
+
+      <ul class="side-nav hide-on-large-only" id="mobile-demo">
+        {{#if currentUser}} 
+      
+        <ul id="nav-logged-in">
+          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
+          <li><a href="{{pathFor 'userQuestions'}}">My Questions</a></li>
+          <li class="right-align">{{>loginButtons}}</li>          
+        </ul>
+        {{else}}  
+        <ul id="nav-mobile" class="right-align">
+          <li><a href="{{pathFor 'allQuestions'}}">All Questions</a></li>
+          <li>{{>loginButtons}}</li>
+        </ul>
+        {{/if}} 
+      </ul>
+    </div>
+  </nav>
 </template>

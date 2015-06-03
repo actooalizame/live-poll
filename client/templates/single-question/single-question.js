@@ -16,7 +16,23 @@ Template.singleQuestion.helpers({
 		var votedBy = questionId.votedBy;
 		var array = jQuery.inArray(userId,votedBy);
 		if(array >=0){
-			return 'deactivate';
+			//return 'deactivate';
+		}
+	},
+	'smartColumns': function(){
+		var optionId = this._id;
+		var option = Options.findOne({_id:optionId});
+		var questionId = option.questionId;
+		var question = Questions.findOne({_id: questionId});
+		var options = question.options;
+		if (options===2){
+			return "6";
+		} 
+		if(options===3) {
+			return "4";
+		}
+		else if(options===4) {
+			return "<3></3>";
 		}
 	}
 });
@@ -41,5 +57,15 @@ Template.singleQuestion.events({
 		var userId = user.hook;
 		var questionId = this.questionId;
 		Meteor.call('addVotedBy', questionId, userId);
+
+
+
+		var question = Questions.findOne(this._id);
+		var optionId = Options.find({questionId: this._id});
+		var questionId = Questions.findOne({_id: this._id});
+		//var question = Questions.findOne({_id: "questionId"});
+		var options = question.options;
+		var count = options.count();
+		return question;
 	}*/
 });
