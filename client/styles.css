@@ -1,6 +1,14 @@
-./*selected {
-	background-color: pink;
-}*/
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+	-webkit-transform: scale(0.9,0.9);
+	-moz-transform: scale(0.9,0.9);
+	-ms-transform: scale(0.9,0.9);
+	-o-transform: scale(0.9,0.9);
+	transform: scale(0.9,0.9);
+}
 
 ol li {
 	list-style-type: lower-alpha;
@@ -20,15 +28,21 @@ ol li {
 
 .score {
 	color: red;
+	font-size: 17px;
+}
+
+.single-score {
+	font-size: 16px;
 }
 
 .question {
-  height: 382px;
+  height: 470px;
 	border-radius: 2px;
 }
 
 .question-title {
-	padding: 5px;
+	padding: 7px 10px;
+	font-size: 17px;
 	font-weight: bold;
 	border-radius: 5px 5px 0 0;
 }
@@ -47,18 +61,26 @@ ol li {
 }
 
 .board {
-	height: 650px;
-	margin-top: -3em;
+	height: 50px;
+	margin-top: -18em;
+}
+
+.svg-container {
+	margin: 0 5px;
 }
 
 .single-option {
 	text-align: center;
 }
 
-.option-title {
-	margin-top: -4em;
+.data-wrapper{
+	margin-top: -5em;
 }
 
 .nav-wrapper a {
 	color: #101;
+}
+
+#login-dropdown-list {
+  left: -201%;
 }

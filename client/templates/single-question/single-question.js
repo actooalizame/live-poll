@@ -26,13 +26,13 @@ Template.singleQuestion.helpers({
 		var question = Questions.findOne({_id: questionId});
 		var options = question.options;
 		if (options===2){
-			return "6";
-		} 
+			return "s6";
+		}
 		if(options===3) {
-			return "4";
+			return "s4";
 		}
 		else if(options===4) {
-			return "<3></3>";
+			return "m3";
 		}
 	}
 });

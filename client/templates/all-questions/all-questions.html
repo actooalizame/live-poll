@@ -1,15 +1,15 @@
 <template name="allQuestions">
-	<div class="container">
+	<div class="">
 		<div class="row">
 			{{#each questions}}
-				<div class="col s12 l4 question">
+				<div class="col s12 m4 l3 question">
 					<p class="z-depth-3 question-title">{{question}}</p>
 					<ul class="collection">
 						{{#each options}}
-							<li class="collection-item">{{option}} | 
+							<li class="collection-item">{{option}}<br> 
 								<span class="score">{{score}}</span>
-								<svg xmlns="http://www.w3.org/2000/svg" height="10px" width="50px">
-										<rect x="0" y="0" height="5" width="{{score}}" fill="#ff8a65" stroke="#ff8a65" stroke-width="3"></rect>
+								<svg xmlns="http://www.w3.org/2000/svg" height="10px" width="100px">
+										<rect x="0" y="0" height="5" width="{{scoreExpSmall}}" fill="#ff8a65" stroke="#ff8a65" stroke-width="10"></rect>
 		 							</svg>
 							</li>
 						{{/each}}

@@ -1,9 +1,8 @@
 Meteor.methods({
-	'insertQuestion': function(question, creatorId, creatorName){
+	'insertQuestion': function(question, creatorId){
 		Questions.insert({
 			question: question,
 			createdBy: creatorId,
-			creatorName: creatorName,
 			createdAt: new Date(),
 			done: false,
 			votedBy: [],
@@ -15,7 +14,8 @@ Meteor.methods({
 			questionId: questionId,
 			option: option,
 			score: 0,
-			scoreExp: 0
+			scoreExp: 0,
+			scoreExpSmall: 0
 		});
 		Questions.update(
 			{	_id: questionId },
@@ -37,7 +37,7 @@ Meteor.methods({
 	'voteOption': function(optionId){
 		Options.update(
 			{ _id: optionId },
-			{ $inc: { score: 1, scoreExp: 30 } }
+			{ $inc: { score: 1, scoreExp: 30, scoreExpSmall: 5 } }
 		);
 	}
 
