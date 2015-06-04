@@ -7,13 +7,9 @@ Template.allQuestions.rendered = function(){
 		grid.isotope({
 			filter: filterValue,
 			layoutMode: 'fitRows',
-			resizesContainer: false,
-			hiddenStyle: {
-        opacity: 0,
-      },
-      visibleStyle: {
-        opacity: 1,
-      }
+			resizesContainer: true,
+			transformsEnabled: false,
+			transitionDuration: 0,
 		});
 	});
 };
