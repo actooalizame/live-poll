@@ -1,3 +1,10 @@
+Template.singleQuestion.rendered = function(){
+	$('.orientation-alert')
+    .css('visibility', 'visible')
+    .animate({opacity: 1.0}, 1700)
+    .fadeOut("fast");
+};
+
 Template.singleQuestion.helpers({
 	'options': function(){
 		return Options.find({questionId: this._id});
@@ -40,7 +47,8 @@ Template.singleQuestion.helpers({
 		var question = Questions.findOne({_id: questionId});
 		var options = question.options;
 		var winWidth = window.innerWidth;
-		if(winWidth<=600 && options===4){
+		var winHeight = window.innerHeight;
+		if(winWidth<=600 && options===4 && winHeight>600){
 			return "Gira tu teléfono :)";
 		}
 	}

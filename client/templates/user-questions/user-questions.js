@@ -40,6 +40,10 @@ Template.userQuestions.events({
 		var questionId = this._id;
 		Session.set('selectedQuestion', questionId);
 	},
+	'change .category': function(event, template){
+		var value = template.find('.category').value;
+		Session.set('category', value);
+	},
 	"submit .create-question": function(event){
 		event.preventDefault();
 		var question = event.target.question.value;
@@ -71,5 +75,7 @@ Template.userQuestions.events({
 	'click .set-done': function(){
 		var questionId = this._id;
 		Meteor.call('setDone', questionId);
+		var category = Session.get('category');
+		Meteor.call('addCategory', questionId, category);
 	}
 });

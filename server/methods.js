@@ -2,6 +2,7 @@ Meteor.methods({
 	'insertQuestion': function(question, creatorId){
 		Questions.insert({
 			question: question,
+			category: null,
 			createdBy: creatorId,
 			createdAt: new Date(),
 			done: false,
@@ -32,6 +33,12 @@ Meteor.methods({
 		Questions.update(
 			{	_id: questionId },
 			{$set: {done: true} }
+		);
+	},
+	'addCategory': function(questionId, category){
+		Questions.update(
+			{	_id: questionId },
+			{$set: {category: category} }
 		);
 	},
 	'voteOption': function(optionId){

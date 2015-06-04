@@ -19,6 +19,13 @@
       
         <div class="new-question question col s12 l4 {{ selectedClass }}">	
           <p class="z-depth-3 question-title">{{question}}</p>
+          <select class="browser-default category">
+            <option disabled selected>Agrega una Categoría</option>
+            <option value="sci">Sci</option>
+            <option value="cultura">Cultura</option>
+            <option value="arteymusica">Arte&Música</option>
+            <option value="locura">Locura</option>
+          </select>
           <form class="create-option {{hideClass}}">
             <div class="{{disableOptions}}">
               <input type="text" class="" name="option" placeholder="Agrega una opcion" />

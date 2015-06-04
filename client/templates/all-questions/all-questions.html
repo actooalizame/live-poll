@@ -1,8 +1,15 @@
 <template name="allQuestions">
 	<div class="">
-		<div class="row">
+		<div class="row button-group filter-button-group">
+			<button data-filter="*" class="btn waves-effect waves-light z-depth-2 valign blue-grey darken-3">All</button>
+			<button data-filter=".sci" class="btn waves-effect waves-light z-depth-2 valign blue-grey darken-3">Sci</button>
+			<button data-filter=".cultura" class="btn waves-effect waves-light z-depth-2 valign blue-grey darken-3">Cultura</button>
+			<button data-filter=".arteymusica" class="btn waves-effect waves-light z-depth-2 valign blue-grey darken-3">Arte&Música</button>
+			<button data-filter=".locura" class="btn waves-effect waves-light z-depth-2 valign blue-grey darken-3">Locura</button>
+		</div>
+		<div class="row grid">
 			{{#each questions}}
-				<div class="col s12 m4 l3 question">
+				<div class="col s12 m4 l3 {{category}} element-item question">
 					<p class="z-depth-3 question-title">{{question}}</p>
 					<ul class="collection">
 						{{#each options}}

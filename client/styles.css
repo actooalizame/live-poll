@@ -26,6 +26,16 @@ ol li {
 	visibility: hidden;
 }
 
+.orientation-alert {
+  visibility: hidden;
+  opacity: 0.0;
+  position: fixed;
+  top: 9%;
+  right: 7%;
+  color: red;
+  font-size: 16px;
+}
+
 .score {
 	color: red;
 	font-size: 21px;

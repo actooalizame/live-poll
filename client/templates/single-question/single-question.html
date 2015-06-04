@@ -2,8 +2,8 @@
 	<div class="row">
 		<div class="col s12 single-question left-align">
 			<h4>{{question}}</h4>
-			{{flipPhone}}
 			<a href="{{pathFor 'allQuestions'}}" class="btn waves-effect waves-light">Volver</a>
+			<span class="orientation-alert">{{flipPhone}}</span>
 		</div>
 		<div class="board center-align col s12">
 			<div class="row {{checkVoted}} {{selectedClass}}">
@@ -33,6 +33,6 @@
 				{{/each}}
 			</div>
 		</div>
-	</div>
 
+	</div>
 </template>
