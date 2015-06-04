@@ -104,6 +104,11 @@ ol li {
   left: -201%;
 }
 
+.button-group {
+	padding-top: 1.8em;
+  text-align: center;
+}
+
 @media (max-width: 600px) {
 	.question {
 	  height: 430px;

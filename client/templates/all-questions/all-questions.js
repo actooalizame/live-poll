@@ -2,12 +2,20 @@ Template.allQuestions.rendered = function(){
 	var grid = $('.grid');
 	//grid.isotope({ filter: '.sci, .cultura, .arteymusica, .locura'});
 
-	$('.filter-button-group').on( 'click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
-  // use filter function if value matches
-  //filterValue = filterFns[ filterValue ] || filterValue;
-  grid.isotope({ filter: filterValue });
-});
+	$('.filter-button-group').on( 'click', 'button', function(){
+		var filterValue = $(this).attr('data-filter');
+		grid.isotope({
+			filter: filterValue,
+			layoutMode: 'fitRows',
+			resizesContainer: false,
+			hiddenStyle: {
+        opacity: 0,
+      },
+      visibleStyle: {
+        opacity: 1,
+      }
+		});
+	});
 };
 
 Template.allQuestions.helpers({
