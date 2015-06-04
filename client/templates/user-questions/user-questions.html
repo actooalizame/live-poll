@@ -15,6 +15,7 @@
   {{/if}}
   <div class="container">
     <div class="row">
+      {{#momentum plugin='growl'}}
       {{#each userQuestions}}
       
         <div class="new-question question col s12 l4 {{ selectedClass }}">	
@@ -33,9 +34,11 @@
             </div>
           </form>
           <ul class="options collection">
+            {{#momentum plugin='growl'}}
             {{#each options}}
               <li class="collection-item"><h6>{{option}} | <span class="score">{{score}}</span></h6></li>
             {{/each}}
+            {{/momentum}}
           </ul>
           <div class="{{disableAsk}}">
             <button class="btn waves-effect waves-light set-done {{hideClass}}">Preguntar!</button>
@@ -43,6 +46,7 @@
         </div>
       
       {{/each}}
+      {{/momentum}}
     </div>
   </div>
 </template>

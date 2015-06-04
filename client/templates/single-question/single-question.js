@@ -3,6 +3,8 @@ Template.singleQuestion.rendered = function(){
     .css('visibility', 'visible')
     .animate({opacity: 1.0}, 1700)
     .fadeOut("fast");
+
+  new WOW().init();
 };
 
 Template.singleQuestion.helpers({

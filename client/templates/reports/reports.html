@@ -1,6 +1,9 @@
 <template name="allReports">
+	{{#momentum plugin='growl'}}
 	{{#each reports}}
 		
 		<p><strong>{{name}}</strong> voto <strong>{{option}}</strong> en la pregunta: <strong>{{question}}</strong></p>
+		
 	{{/each}}
+	{{/momentum}}
 </template>	

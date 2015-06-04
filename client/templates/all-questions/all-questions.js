@@ -12,6 +12,8 @@ Template.allQuestions.rendered = function(){
 			transitionDuration: 0,
 		});
 	});
+
+	new WOW().init();
 };
 
 Template.allQuestions.helpers({
@@ -22,4 +24,3 @@ Template.allQuestions.helpers({
 		return Options.find({questionId: this._id}, {sort: {score:-1}});
 	}
 });
-
