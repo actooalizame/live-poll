@@ -1,4 +1,12 @@
 Meteor.methods({
+	'insertReport': function(userName, questionTitle, optionTitle){
+		Reports.insert({
+			name: userName,
+			question: questionTitle,
+			option: optionTitle,
+			createdAt: new Date()
+		});
+	},
 	'insertQuestion': function(question, creatorId){
 		Questions.insert({
 			question: question,

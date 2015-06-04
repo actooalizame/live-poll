@@ -8,13 +8,12 @@ Meteor.startup(function() {
 /*
 Packages
 
-meteor-platform
-autopublish
-insecure
 iron:router
 accounts-facebook
+accounts-twitter
 accounts-ui
 d0minikk:materialize-meteor
 sacha:spin
+isotope:isotope
 
 */

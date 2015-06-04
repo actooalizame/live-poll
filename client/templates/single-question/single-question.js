@@ -66,5 +66,13 @@ Template.singleQuestion.events({
 		var userId = user.hook;
 		var questionId = this.questionId;
 		Meteor.call('addVotedBy', questionId, userId);
+
+		var singleUser = Meteor.users.findOne({hook: userId}),
+				userName = singleUser.profile.name;
+		var question = Questions.findOne({_id: questionId }),
+				questionTitle = question.question;
+		var option = Options.findOne({_id: optionId }),
+				optionTitle = option.option;
+		Meteor.call('insertReport', userName, questionTitle, optionTitle);
 	}
 });
