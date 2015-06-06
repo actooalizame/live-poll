@@ -2,11 +2,12 @@
 	<div class="row">
 		<div class="col s12 single-question left-align">
 			<h4>{{question}}</h4>
+			<p><strong>{{alreadyVoted}}</strong></p>
 			<a href="{{pathFor 'allQuestions'}}" class="btn waves-effect waves-light">Volver</a>
 			<span class="orientation-alert">{{flipPhone}}</span>
 		</div>
-		<div class="board center-align col s12 wow flipInX">
-			<div class="row {{checkVoted}} {{selectedClass}}">
+		<div class="board center-align col s12">
+			<div class="row {{deactivateVoted}} {{selectedClass}}">
 				{{#each options}}
 					<div class="container single-option">
 							<div class="col {{smartColumns}}">

@@ -18,14 +18,29 @@ Template.singleQuestion.helpers({
 			return 'selected';
 		}
 	},
-	'checkVoted': function(){
-		var questionId = Questions.findOne({_id: this._id});
+	'deactivateVoted': function(){
+		var question = Questions.findOne({_id: this._id});
 		var user = Meteor.user();
 		var userId = user.hook;
-		var votedBy = questionId.votedBy;
+		var votedBy = question.votedBy;
 		var array = jQuery.inArray(userId,votedBy);
 		if(array >=0){
 			return 'deactivate';
+		}
+	},
+	'alreadyVoted': function(){
+		var question = Questions.findOne({_id: this._id}),
+				questionTitle = question.question,
+				user = Meteor.user(),
+				userId = user.hook,
+				singleUser = Meteor.users.findOne({hook:userId}),
+				userName = singleUser.profile.name,
+				votedBy = question.votedBy,
+				array = jQuery.inArray(userId,votedBy),
+				report = Reports.findOne({name:userName, question:questionTitle}),
+				reportOption = report.option;
+		if(array >=0){
+			return 'Ya votaste en esta pregunta! Tu opcion elegida fue: ' + reportOption;
 		}
 	},
 	'smartColumns': function(){
@@ -64,9 +79,9 @@ Template.singleQuestion.events({
 	'click .vote-option': function(){
 		var optionId = this._id;
 		Meteor.call('voteOption', optionId);
-		var user = Meteor.user();
-		var userId = user.hook;
-		var questionId = this.questionId;
+		var user = Meteor.user(),
+				userId = user.hook,
+				questionId = this.questionId;
 		Meteor.call('addVotedBy', questionId, userId);
 
 		var singleUser = Meteor.users.findOne({hook: userId}),

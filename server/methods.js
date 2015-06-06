@@ -1,12 +1,4 @@
 Meteor.methods({
-	'insertReport': function(userName, questionTitle, optionTitle){
-		Reports.insert({
-			name: userName,
-			question: questionTitle,
-			option: optionTitle,
-			createdAt: new Date()
-		});
-	},
 	'insertQuestion': function(question, creatorId){
 		Questions.insert({
 			question: question,
@@ -31,6 +23,20 @@ Meteor.methods({
 			{$inc: {options: 1} }
 		);
 	},
+	'insertReport': function(userName, questionTitle, optionTitle){
+		Reports.insert({
+			name: userName,
+			question: questionTitle,
+			option: optionTitle,
+			createdAt: new Date()
+		});
+	},
+	'voteOption': function(optionId){
+		Options.update(
+			{ _id: optionId },
+			{ $inc: { score: 1, scoreExp: 30, scoreExpSmall: 5 } }
+		);
+	},
 	'addVotedBy': function(questionId, userId){
 		Questions.update(
 			{	_id: questionId },
@@ -47,12 +53,6 @@ Meteor.methods({
 		Questions.update(
 			{	_id: questionId },
 			{$set: {category: category} }
-		);
-	},
-	'voteOption': function(optionId){
-		Options.update(
-			{ _id: optionId },
-			{ $inc: { score: 1, scoreExp: 30, scoreExpSmall: 5 } }
 		);
 	}
 
