@@ -19,36 +19,36 @@ Template.singleQuestion.helpers({
 		}
 	},
 	'deactivateVoted': function(){
-		var question = Questions.findOne({_id: this._id});
-		var user = Meteor.user();
-		var userId = user.hook;
-		var votedBy = question.votedBy;
-		var array = jQuery.inArray(userId,votedBy);
+		var question = Questions.findOne({_id: this._id}),
+				user = Meteor.user(),
+				userId = user.hook,
+				votedBy = question.votedBy,
+				array = jQuery.inArray(userId,votedBy);
 		if(array >=0){
 			return 'deactivate';
 		}
 	},
-	'alreadyVoted': function(){
+	'reportOption': function(){
 		var question = Questions.findOne({_id: this._id}),
 				questionTitle = question.question,
 				user = Meteor.user(),
 				userId = user.hook,
 				singleUser = Meteor.users.findOne({hook:userId}),
 				userName = singleUser.profile.name,
-				votedBy = question.votedBy,
-				array = jQuery.inArray(userId,votedBy),
 				report = Reports.findOne({name:userName, question:questionTitle}),
-				reportOption = report.option;
+				reportOption = report.option,
+				votedBy = question.votedBy,
+				array = jQuery.inArray(userId,votedBy);
 		if(array >=0){
-			return 'Ya votaste en esta pregunta! Tu opcion elegida fue: ' + reportOption;
+			return reportOption;
 		}
 	},
 	'smartColumns': function(){
-		var optionId = this._id;
-		var option = Options.findOne({_id:optionId});
-		var questionId = option.questionId;
-		var question = Questions.findOne({_id: questionId});
-		var options = question.options;
+		var optionId = this._id,
+				option = Options.findOne({_id:optionId}),
+				questionId = option.questionId,
+				question = Questions.findOne({_id: questionId}),
+				options = question.options;
 		if (options===2){
 			return "s6";
 		}
@@ -60,11 +60,11 @@ Template.singleQuestion.helpers({
 		}
 	},
 	'flipPhone': function(){
-		var questionId = this._id;
-		var question = Questions.findOne({_id: questionId});
-		var options = question.options;
-		var winWidth = window.innerWidth;
-		var winHeight = window.innerHeight;
+		var questionId = this._id,
+				question = Questions.findOne({_id: questionId}),
+				options = question.options,
+				winWidth = window.innerWidth,
+				winHeight = window.innerHeight;
 		if(winWidth<=600 && options===4 && winHeight>600){
 			return "Gira tu teléfono :)";
 		}
